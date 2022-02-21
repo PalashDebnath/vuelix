@@ -1,8 +1,11 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-      <div class="navbar-brand">
+      <div class="navbar-brand d-none d-sm-block">
         <img src="@/assets/logo.png" alt="" width="30" height="30" /> {{ appName }}
+      </div>
+      <div class="navbar-brand d-block d-sm-none">
+        <img src="@/assets/logo.png" alt="" width="30" height="30" />
       </div>
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
@@ -11,10 +14,11 @@
           </router-link>
         </li>
       </ul>
-      <ul class="navbar-nav">
+      <ul :class="['navbar-nav',{'margin-end': showSidebar}]">
         <li class="nav-item">
-          <button class="btn btn-sm btn-success" @click="onClick">
-            <i class="bi bi-search"></i> SEARCH
+          <button class="btn btn-success" @click="onClick">
+            <i class="bi bi-search" v-if="!showSidebar"></i>
+            <i class="bi bi-x-lg" v-else></i>
           </button>
         </li>
       </ul>
@@ -106,6 +110,15 @@
       z-index: 3;
       bottom: 60px;
       position: fixed;
+    }
+  }
+
+  @media (min-width: 576px)
+  {
+    .margin-end {
+      margin-right: 15rem;
+      animation: slide-in 0.3s;
+      animation-timing-function: linear;
     }
   }
 

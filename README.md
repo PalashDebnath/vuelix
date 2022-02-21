@@ -36,6 +36,7 @@ npm run lint
 3. Kept everything moduler as much as possible.
 4. Application is resposive, please do check it in mobile mode.
 5. As the application is small did not used namespaced module for vuex store creation.
+6. They are certain css thinks still can be improved. The main focus over here is on vue not on css.
 ```
 
 
