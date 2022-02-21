@@ -1,14 +1,19 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
-export default createStore({
+import show from './show';
+
+const store = {
   state: {
+    appName: 'VUELIX'
   },
   getters: {
-  },
-  mutations: {
-  },
-  actions: {
+    fetchAppName: (state) => {
+      return state.appName;
+    }
   },
   modules: {
+    show
   }
-})
+};
+
+export default createStore(store);

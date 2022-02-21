@@ -1,30 +1,36 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <layout-header></layout-header>
+  <div class="container-fluid bg-dark text-white pt-3 app-container">
+    <router-view></router-view>
+  </div>
 </template>
 
+<script>
+  import LayoutHeader from './components/layout-header.vue';
+
+  export default {
+    components: {
+      LayoutHeader,
+    }
+  }
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  .app-container {
+    min-height: 100vh;
+  }
 
-nav {
-  padding: 30px;
-}
+  .scroller::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  .scroller::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 10px;
+  }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+  .scroller::-webkit-scrollbar-track {
+      background-color: transparent;
+  }
 </style>
